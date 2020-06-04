@@ -22,11 +22,13 @@ I am reachable at [LinkedIn](<https://www.linkedin.com/in/chinmay-anand-a952622/
 <h2>How to remove a file permanently from github repository</h2>
 
 git clone https://github.com/chinmay-anand/NLP_from_PyOhio
+
 cd NLP_from_PyOhio
 
-# To remove a file (say "index.html") premanently from GitHub execute the following two commands
+### To remove a file (say "index.html") premanently from GitHub execute the following two commands
 
 git filter-branch --force --index-filter "git rm --cached --ignore-unmatch index.html" --prune-empty --tag-name-filter cat -- --all
+
 git push origin --force --all
 
 </pre>
