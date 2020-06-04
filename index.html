@@ -1,7 +1,7 @@
 <h1>Welcome to homepage of Chinmay's github repository</h1>
 I am reachable at [LinkedIn](<https://www.linkedin.com/in/chinmay-anand-a952622/>)
 
-<table>
+<table border="1">
 <tr><th>Repository</th><th>GitHub link</th><th>Project Description</th><th>Project Status</th>
   </tr><tr>
     <td><a href="NLP_from_PyOhio">NLP from PyOhio conference</a></td><td><a href="https://github.com/chinmay-anand/NLP_from_pyOhio" target="_blank">Git Repo</a></td><td>Natural Language Processing in Python (from PyOhio conference presentation in 30July2018)</td><td>Status: In Progress</td>
@@ -17,3 +17,16 @@ I am reachable at [LinkedIn](<https://www.linkedin.com/in/chinmay-anand-a952622/
     <td><a href="spring-examples">spring-examples</a><td><a href="https://github.com/chinmay-anand/spring-examples" target="_blank">Git Repo</a></td><td>Contains eamples of various aspects of Spring in different sub folders</td><td>Upcoming</td>
   </tr>
 </table>
+
+<pre>
+<h2>How to remove a file permanently from github repository</h2>
+
+git clone https://github.com/chinmay-anand/NLP_from_PyOhio
+cd NLP_from_PyOhio
+
+# To remove a file (say "index.html") premanently from GitHub execute the following two commands
+
+git filter-branch --force --index-filter "git rm --cached --ignore-unmatch index.html" --prune-empty --tag-name-filter cat -- --all
+git push origin --force --all
+
+</pre>
