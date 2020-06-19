@@ -1,0 +1,37 @@
+<h1>Welcome to homepage of Chinmay's github repository</h1>
+I am reachable at <a href="https://www.linkedin.com/in/chinmay-anand-a952622/">LinkedIn</a><br/>
+<a href="mailto:chinmay.subscriptions@gmail.com">Contact me</a> to gain access to many of the private repositories below.
+
+<table border="1">
+<tr><th>Repository</th><th>Project Description</th><th>Project Status</th>
+  </tr><tr>
+    <td><a href="it-architecture" target="_blank">Product Management and IT Architecture</a></td><td>Product Management and IT Architecture resources from productplan.com</td><td>In Progress</td>
+  </tr><tr>
+    <td><a href="NLP_from_PyOhio" target="_blank">NLP from PyOhio conference</a></td><td>Natural Language Processing in Python (from PyOhio conference presentation in 30July2018)</td><td>In Progress</td>
+  </tr><tr>
+    <td><a href="python_spark_tools" target="_blank">python_spark_tools</a></td><td>Using PySpark for handling BigData and Machine Learning</td><td>Status: Completed</td>
+  </tr><tr>
+    <td><a href="spring-mvc-ssl" target="_blank">spring-mvc-ssl</a></td><td>How to implement self-signed SSL with Spring Boot (Java, SSL)</td><td>Status: In Progress</td>
+  </tr><tr>
+    <td><a href="covid-data" target="_blank">covid-data</a><td>Latest COVID-19 data (python)</td><td>On Production</td>
+  </tr><tr>
+    <td><a href="spring-data-experiment" target="_blank">spring-data-experiment</a><td>My experiments with Spring Data V2.</td><td>In Progress</td>
+  </tr><tr>
+    <td><a href="spring-examples" target="_blank">spring-examples</a></td><td>Contains eamples of various aspects of Spring in different sub folders</td><td>Upcoming</td>
+  </tr>
+</table>
+
+<pre>
+<h2>How to remove a file permanently from github repository</h2>
+
+git clone https://github.com/chinmay-anand/NLP
+
+cd NLP
+
+### To remove a file (say "index.html") premanently from GitHub execute the following two commands
+
+git filter-branch --force --index-filter "git rm --cached --ignore-unmatch index.html" --prune-empty --tag-name-filter cat -- --all
+
+git push origin --force --all
+
+</pre>
