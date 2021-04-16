@@ -7,10 +7,9 @@
 * [interesting_python_links.md](interesting_python_links.md)
 * [kafka_tutorials_dzone.md](kafka_tutorials_dzone.md)
 * [machine_learning_links.md](machine_learning_links.md)
-* [networking.md](networking.md)
 * [product_roadmap_linkedin.md](product_roadmap_linkedin.md)
 * [spark_tutorials_dzone.md](spark_tutorials_dzone.md)
-* [syntax_connection_ngrok_loclx.md](syntax_connection_ngrok_loclx.md)
+* [expose-local-server-behind-firewall.md](expose-local-server-behind-firewall.md)
 * BELOW LINKS ARE ALREADY USED ABOVE
 >* [design_patterns.md](design_patterns.md)
 >* [installation_hadoop_spark_kafka_hive.md](installation_hadoop_spark_kafka_hive.md)
