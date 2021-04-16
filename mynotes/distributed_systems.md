@@ -1,0 +1,3 @@
+* [Online courses & Videos on Distributed Systems](https://www.quora.com/Which-is-a-good-online-course-for-studying-distributed-systems-Video-lectures-preferred)
+  - [Distributed Systems from Princeton university](https://www.usenix.org/legacy/publications/library/proceedings/worlds04/tech/full_papers/muir/muir_html/index.html)
+  - [A collection of Articles on Distributed Systems](https://courses.cs.washington.edu/courses/cse452/16wi/calendar/lecturelist.html)

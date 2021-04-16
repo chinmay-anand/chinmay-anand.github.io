@@ -1,0 +1,1377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>SQLAlchemy-DB Tuning-Neo4j</title>
+  </head>
+  <body>
+    <table cellspacing="2" cellpadding="2" width="100%" border="1">
+      <tbody>
+        <tr>
+          <td valign="top"><u><b>SQL Alchemy</b></u><br>
+          </td>
+          <td valign="top"><u><b>Database Testing</b></u><br>
+          </td>
+          <td valign="top">Hibernate<br>
+          </td>
+          <td valign="top">Neo4j<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(206, 30, 6); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">SQLAlchemy Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlalchemy/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLAlchemy - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_introduction.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLAlchemy - Introduction</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(206, 30, 6); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">SQLAlchemy Core</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_expression_language.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Expression Language</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_connecting_to_database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Connecting to Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_creating_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Creating Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_sql_expressions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL Expressions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_executing_expression.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Executing Expression</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_selecting_rows.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Selecting Rows</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_using_textual_sql.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Using Textual SQL</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_using_aliases.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Using Aliases</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_using_update_expression.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Using UPDATE Expression</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_using_delete_expression.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Using DELETE Expression</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_using_multiple_tables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Using Multiple Tables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_using_multiple_table_updates.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Using Multiple Table Updates</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_parameterordered_updates.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Parameter-Ordered Updates</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_multiple_table_deletes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Multiple Table Deletes</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_using_joins.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Using Joins</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_using_conjunctions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Using Conjunctions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_using_functions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Using Functions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_core_using_set_operations.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Using Set Operations</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(206, 30, 6); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">SQLAlchemy ORM</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_declaring_mapping.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Declaring Mapping</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_creating_session.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Creating Session</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_adding_objects.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Adding Objects</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_using_query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Using Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_updating_objects.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Updating Objects</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_applying_filter.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Applying Filter</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_filter_operators.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Filter Operators</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_returning_list_and_scalars.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Returning List and Scalars</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_textual_sql.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Textual SQL</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_building_relationship.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Building Relationship</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_working_with_related_objects.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Working with Related Objects</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_working_with_joins.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Working with Joins</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_common_relationship_operators.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Common Relationship Operators</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_eager_loading.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Eager Loading</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_deleting_related_objects.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Deleting Related Objects</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_orm_many_to_many_relationships.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Many to Many Relationships</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_dialects.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Dialects</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(206, 30, 6); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">SQLAlchemy Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLAlchemy - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLAlchemy - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLAlchemy - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background: rgb(3,
+                139, 195); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Database Testing Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/database_testing/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_overview.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing – Overview</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_types.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing – Types</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_processes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing – Processes</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_techniques.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing – Techniques</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_scenarios.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing – Scenarios</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_objects.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing – Objects</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_data_integrity.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing – Data
+                  Integrity</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_data_mapping.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing – Data
+                  Mapping</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_performance.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing – Performance</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_tools.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing – Tools</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_backup.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing – Backup</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_recovery.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing – Recovery</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_security.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing – Security</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_challenges.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing – Challenges</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_interview_questions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DB Testing - Interview
+                  Questions</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background: rgb(3,
+                139, 195); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Database Testing Useful
+                Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing - Useful
+                  Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/database_testing/database_testing_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Database Testing - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(188, 174, 120); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Hibernate Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/hibernate/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hibernate/orm_overview.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">ORM - Overview</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hibernate/hibernate_overview.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Overview</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/hibernate/hibernate_architecture.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Architecture</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/hibernate/hibernate_environment.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Environment</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/hibernate/hibernate_configuration.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Configuration</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hibernate/hibernate_sessions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Sessions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/hibernate/hibernate_persistent_classes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Persistent Class</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/hibernate/hibernate_mapping_files.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Mapping Files</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/hibernate/hibernate_mapping_types.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Mapping Types</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hibernate/hibernate_examples.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Examples</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/hibernate/hibernate_or_mappings.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - O/R Mappings</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/hibernate/hibernate_annotations.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Annotations</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/hibernate/hibernate_query_language.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Query Language</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/hibernate/hibernate_criteria_queries.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Criteria Queries</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hibernate/hibernate_native_sql.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Native SQL</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hibernate/hibernate_caching.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Caching</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/hibernate/hibernate_batch_processing.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Batch Processing</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/hibernate/hibernate_interceptors.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Interceptors</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(188, 174, 120); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Hibernate Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/hibernate/hibernate_questions_answers.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Questions and
+                  Answers</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/hibernate/hibernate_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/hibernate/hibernate_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hibernate/hibernate_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Hibernate - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(32, 104, 180); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Neo4j Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/neo4j/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_overview.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Overview</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_data_model.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Data Model</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_environment_setup.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Environment Setup</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_building_blocks.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Building Blocks</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(32, 104, 180); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Neo4j CQL</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_cql_introduction.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j CQL - Introduction</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_cql_creating_nodes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j CQL - Creating Nodes</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/neo4j/neo4j_cql_creating_relationship.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j CQL - Creating a
+                  Relationship</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(32, 104, 180); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Neo4j CQL Write Clauses</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_merge_command.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Merge Command</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_set_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Set Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_delete_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Delete Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_remove_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Remove Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_foreach_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Foreach Clause</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(32, 104, 180); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Neo4j CQL Read Clause</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_match_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Match Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/neo4j/neo4j_optional_match_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Optional Match Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_where_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Where Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_count_function.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Count Function</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(32, 104, 180); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Neo4j CQL General Clauses</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_return_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Return Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_order_by_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Order By Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_limit_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Limit Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_skip_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Skip Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_with_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - With Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_unwind_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Unwind Clause</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(32, 104, 180); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Neo4j CQL Functions</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_string_functions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - String Functions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/neo4j/neo4j_aggregation_function.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Aggregation Function</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(32, 104, 180); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Neo4j CQL Admin</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_backup_and_restore.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Backup &amp; Restore</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Index</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/neo4j/neo4j_create_unique_constraint.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Create Unique
+                  Constraint</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_drop_unique.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Drop Unique</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(32, 104, 180); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Neo4j Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+                  href="https://www.tutorialspoint.com/neo4j/neo4j_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Neo4j - Discussion</a></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+  </body>
+</html>

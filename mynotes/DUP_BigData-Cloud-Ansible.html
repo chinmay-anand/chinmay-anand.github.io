@@ -1,0 +1,1123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>BigData-Cloud-Ansible-Solr</title>
+  </head>
+  <body>
+    <table cellspacing="2" cellpadding="2" width="100%" border="1">
+      <tbody>
+        <tr>
+          <td valign="top">BigData Analytics<br>
+          </td>
+          <td valign="top">Apacje Spark (Basics)<br>
+          </td>
+          <td valign="top">Apache Kafka (Basics)<br>
+          </td>
+          <td valign="top">OpenShift<br>
+          </td>
+          <td valign="top">Ansible<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(203, 2, 110); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Big Data Analytics Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/big_data_analytics/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/big_data_analytics_overview.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics - Overview</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/big_data_analytics_lifecycle.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics - Data Life
+                  Cycle</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/big_data_analytics_methodology.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics -
+                  Methodology</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/core_deliverables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Core Deliverables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/key_stakeholders.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Key Stakeholders</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/data_analyst.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics - Data
+                  Analyst</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/data_scientist.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics - Data
+                  Scientist</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(203, 2, 110); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Big Data Analytics Project</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/problem_definition.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Data Analytics - Problem
+                  Definition</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/data_collection.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics - Data
+                  Collection</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/cleansing_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics - Cleansing
+                  data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/summarizing_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics -
+                  Summarizing</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/data_exploration.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics - Data
+                  Exploration</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/data_visualization.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Data Visualization</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(203, 2, 110); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Big Data Analytics Methods</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/r_introduction.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics -
+                  Introduction to R</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/introduction_to_sql.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Data Analytics - Introduction
+                  to SQL</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/charts_and_graphs.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics - Charts
+                  &amp; Graphs</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/data_analysis_tools.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics - Data
+                  Tools</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/statistical_methods.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Data Analytics - Statistical
+                  Methods</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(203, 2, 110); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Advanced Methods</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/machine_learning_data_analysis.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Machine Learning for Data
+                  Analysis</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/naive_bayes_classifier.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Naive Bayes Classifier</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/k_means_clustering.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">K-Means Clustering</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/association_rules.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Association Rules</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/decision_trees.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics - Decision
+                  Trees</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/logistic_regression.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Logistic Regression</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/time_series_analysis.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics - Time
+                  Series</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/text_analytics.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics - Text
+                  Analytics</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/online_learning.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics - Online
+                  Learning</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(203, 2, 110); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Big Data Analytics Useful
+                Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/big_data_analytics_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics - Quick
+                  Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/big_data_analytics_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics - Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/big_data_analytics/big_data_analytics_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Big Data Analytics -
+                  Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(231, 114, 21); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Apache Spark Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/apache_spark/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Spark - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_spark/apache_spark_introduction.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Spark - Introduction</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/apache_spark/apache_spark_rdd.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Spark - RDD</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_spark/apache_spark_installation.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Spark - Installation</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_spark/apache_spark_core_programming.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Spark - Core
+                  Programming</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_spark/apache_spark_deployment.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Spark - Deployment</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_spark/advanced_spark_programming.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Advanced Spark Programming</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(231, 114, 21); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Apache Spark Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_spark/apache_spark_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Spark - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_spark/apache_spark_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Spark - Useful
+                  Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_spark/apache_spark_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Spark - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(102, 58, 127); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Apache Kafka Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/apache_kafka/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Kafka - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_kafka/apache_kafka_introduction.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Kafka - Introduction</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_kafka/apache_kafka_fundamentals.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Kafka - Fundamentals</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_kafka/apache_kafka_cluster_architecture.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Kafka - Cluster
+                  Architecture</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_kafka/apache_kafka_workflow.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Kafka - Work Flow</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_kafka/apache_kafka_installation_steps.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Kafka - Installation
+                  Steps</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_kafka/apache_kafka_basic_operations.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Kafka - Basic
+                  Operations</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_kafka/apache_kafka_simple_producer_example.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Simple Producer Example</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_kafka/apache_kafka_consumer_group_example.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Consumer Group Example</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_kafka/apache_kafka_integration_storm.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Integration With Storm</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_kafka/apache_kafka_integration_spark.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Integration With Spark</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_kafka/apache_kafka_real_time_application.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Real Time Application(Twitter)</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_kafka/apache_kafka_tools.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Kafka - Tools</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_kafka/apache_kafka_applications.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Kafka - Applications</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(102, 58, 127); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Apache Kafka Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_kafka/apache_kafka_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Kafka - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_kafka/apache_kafka_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Kafka - Useful
+                  Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+href="https://www.tutorialspoint.com/apache_kafka/apache_kafka_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Kafka - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(218, 36, 48); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">OpenShift Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/openshift/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/openshift/openshift_overview.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - Overview</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/openshift/openshift_types.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - Types</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/openshift/openshift_architecture.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - Architecture</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/openshift/openshift_environment_setup.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - Environment Setup</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/openshift/openshift_basic_concept.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - Basic Concept</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/openshift/openshift_getting_started.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - Getting Started</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/openshift/openshift_build_automation.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - Build Automation</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/openshift/openshift_cli.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - CLI</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/openshift/openshift_cli_operations.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - CLI Operations</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/openshift/openshift_clusters.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - Clusters</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/openshift/openshift_application_scaling.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - Application
+                  Scaling</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/openshift/openshift_administration.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - Administration</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/openshift/openshift_docker_and_kubernetes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - Docker and
+                  Kubernetes</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/openshift/openshift_security.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - Security</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(218, 36, 48); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">OpenShift Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/openshift/openshift_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/openshift/openshift_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+                  href="https://www.tutorialspoint.com/openshift/openshift_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">OpenShift - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(213, 68, 11); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Ansible Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/ansible/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Ansible - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/ansible/ansible_introduction.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Ansible - Introduction</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/ansible/ansible_environment_setup.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Ansible - Environment Setup</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/ansible/ansible_yaml_basics.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Ansible - YAML Basics</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/ansible/ansible_ad_hoc_commands.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Ansible - Ad hoc Commands</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/ansible/ansible_playbooks.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Ansible - Playbooks</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/ansible/ansible_roles.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Ansible - Roles</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/ansible/ansible_variables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Ansible - Variables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/ansible/ansible_advanced_execution.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Ansible - Advanced Execution</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/ansible/ansible_troubleshooting.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Ansible - Troubleshooting</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(213, 68, 11); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Ansible Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/ansible/ansible_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Ansible - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/ansible/ansible_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Ansible - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+                  href="https://www.tutorialspoint.com/ansible/ansible_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Ansible - Discussion</a></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+  </body>
+</html>

@@ -1,0 +1,2117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>NoSQL Tutorials @ tutorialspoint</title>
+  </head>
+  <body>
+    NoSQL Tutorials<br>
+    <table cellspacing="2" cellpadding="2" width="100%" border="1">
+      <tbody>
+        <tr>
+          <td valign="top">Cassandra<br>
+          </td>
+          <td valign="top">MongoDB<br>
+          </td>
+          <td valign="top">DocumentDB(Microsoft)<br>
+          </td>
+          <td valign="top">SQLite<br>
+          </td>
+          <td valign="top">DynamoDB<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <table cellspacing="2" cellpadding="2" width="100%"
+              border="1">
+              <tbody>
+                <tr>
+                  <td valign="top" bgcolor="#99ff99"><a
+                      href="https://docs.datastax.com/en/cassandra-oss/2.1/"
+                      style="font-family: &quot;Times New Roman&quot;;
+                      font-size: medium; font-style: normal;
+                      font-variant-ligatures: normal; font-variant-caps:
+                      normal; font-weight: 400; letter-spacing: normal;
+                      orphans: 2; text-align: start; text-indent: 0px;
+                      text-transform: none; white-space: normal; widows:
+                      2; word-spacing: 0px; -webkit-text-stroke-width:
+                      0px;">DataStax Documentation on Cassandra</a></td>
+                </tr>
+              </tbody>
+            </table>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(18, 135, 177); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Cassandra Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/cassandra/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_introduction.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Introduction</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_architecture.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Architecture</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/cassandra/cassandra_data_model.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Data Model</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_installation.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Installation</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_referenced_api.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Referenced Api</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/cassandra/cassandra_cqlsh.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Cqlsh</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_shell_commands.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Shell Commands</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(18, 135, 177); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Cassandra Keyspace Operations</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_create_keyspace.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Create Keyspace</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_alter_keyspace.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Alter Keyspace</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_drop_keyspace.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Drop Keyspace</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(18, 135, 177); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Cassandra Table Operations</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_create_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Create Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_alter_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Alter Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/cassandra/cassandra_drop_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Drop Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_truncate_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Truncate Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_create_index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Create Index</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/cassandra/cassandra_drop_index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Drop Index</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/cassandra/cassandra_batch.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Batch</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(18, 135, 177); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Cassandra CURD Operations</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_create_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Create Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_update_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Update Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/cassandra/cassandra_read_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Read Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_delete_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Delete Data</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(18, 135, 177); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Cassandra CQL Types</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_cql_datatypes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - CQL Datatypes</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_cql_collections.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - CQL Collections</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_cql_user_defined_datatypes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">CQL User Defined Datatypes</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(18, 135, 177); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Cassandra Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/cassandra/cassandra_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/cassandra/cassandra_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+                  href="https://www.tutorialspoint.com/cassandra/cassandra_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Cassandra - Discussion</a></li>
+            </ul>
+            <br>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(69, 158, 54); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">MongoDB Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/mongodb/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_overview.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Overview</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_advantages.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Advantages</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_environment.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Environment</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_data_modeling.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Data Modeling</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_create_database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Create Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_drop_database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Drop Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_create_collection.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Create Collection</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_drop_collection.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Drop Collection</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_datatype.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Data Types</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_insert_document.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Insert Document</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_query_document.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Query Document</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_update_document.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Update Document</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_delete_document.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Delete Document</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_projection.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Projection</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_limit_record.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Limiting Records</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_sort_record.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Sorting Records</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_indexing.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Indexing</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_aggregation.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Aggregation</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_replication.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Replication</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_sharding.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Sharding</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_create_backup.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Create Backup</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_deployment.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Deployment</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_java.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Java</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_php.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - PHP</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(69, 158, 54); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Advanced MongoDB</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_relationships.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Relationships</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_database_references.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Database References</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_covered_queries.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Covered Queries</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_analyzing_queries.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Analyzing Queries</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_atomic_operations.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Atomic Operations</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_advanced_indexing.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Advanced Indexing</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_indexing_limitations.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Indexing Limitations</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_objectid.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - ObjectId</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_map_reduce.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Map Reduce</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_text_search.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Text Search</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_regular_expression.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Regular Expression</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/working_with_rockmongo.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Working with Rockmongo</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_gridfs.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - GridFS</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_capped_collections.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Capped Collections</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_autoincrement_sequence.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Auto-Increment Sequence</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(69, 158, 54); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">MongoDB Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_questions_answers.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Questions and
+                  Answers</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mongodb/mongodb_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mongodb/mongodb_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MongoDB - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(57, 153, 198); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">DocumentDB Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/documentdb/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_introduction.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Introduction</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_advantages.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Advantages</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_environment_setup.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Environment Setup</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_create_account.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Create Account</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_connect_account.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Connect Account</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_create_database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Create Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_list_databases.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - List Databases</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_drop_databases.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Drop Databases</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_create_collection.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Create Collection</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_delete_collection.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Delete Collection</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_insert_document.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Insert Document</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_query_document.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Query Document</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_update_document.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Update Document</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_delete_document.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Delete Document</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_data_modeling.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Data Modeling</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_data_types.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Data Types</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_limiting_records.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Limiting Records</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_sorting_records.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Sorting Records</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_indexing_records.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Indexing Records</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_geospatial_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Geospatial Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_partitioning.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Partitioning</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_data_migration.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Data Migration</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_access_control.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Access Control</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_visualize_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Visualize Data</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(57, 153, 198); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">DocumentDB Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+href="https://www.tutorialspoint.com/documentdb/documentdb_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DocumentDB - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background: rgb(0,
+                59, 87); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">SQLite Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/sqlite/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_overview.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Overview</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_installation.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Installation</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_commands.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Commands</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_syntax.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Syntax</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_data_types.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Data Type</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_create_database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - CREATE Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_attach_database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - ATTACH Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_detach_database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - DETACH Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_create_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - CREATE Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_drop_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - DROP Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_insert_query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - INSERT Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_select_query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - SELECT Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_operators.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Operators</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_expressions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Expressions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_where_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - WHERE Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_and_or_clauses.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - AND &amp; OR Clauses</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_update_query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - UPDATE Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_delete_query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - DELETE Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_like_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - LIKE Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_glob_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - GLOB Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_limit_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - LIMIT Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_order_by.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - ORDER By Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_group_by.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - GROUP By Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_having_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - HAVING Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_distinct_keyword.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - DISTINCT Keyword</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background: rgb(0,
+                59, 87); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Advanced SQLite</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_pragma.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - PRAGMA</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_constraints.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Constraints</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_using_joins.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - JOINS</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_unions_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - UNIONS Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_null_values.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - NULL Values</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_alias_syntax.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - ALIAS Syntax</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_triggers.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Triggers</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_indexes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Indexes</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_indexed_by.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - INDEXED By Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_alter_command.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - ALTER Command</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_truncate_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - TRUNCATE Command</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_views.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Views</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_transactions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Transactions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_sub_queries.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Subqueries</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/sqlite/sqlite_using_autoincrement.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - AUTOINCREMENT</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_injection.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Injection</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_explain.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - EXPLAIN</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_vacuum.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - VACUUM</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_date_time.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Date &amp; Time</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_useful_functions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Useful Functions</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background: rgb(0,
+                59, 87); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">SQLite Interfaces</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_c_cpp.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - C/C++</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_java.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Java</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_php.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - PHP</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_perl.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Perl</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_python.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Python</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background: rgb(0,
+                59, 87); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">SQLite Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+                  href="https://www.tutorialspoint.com/sqlite/sqlite_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQLite - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(45, 114, 184); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">DynamoDB Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_overview.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Overview</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_basic_concepts.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Basic Concepts</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_environment.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Environment</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_operations_tools.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Operations Tools</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_data_types.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Data Types</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_create_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Create Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_load_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Load Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_query_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Query Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_delete_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Delete Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_api_interface.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - API Interface</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_creating_items.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Creating Items</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_getting_items.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Getting Items</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_update_items.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Update Items</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_delete_items.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Delete Items</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_batch_writing.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Batch Writing</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_batch_retrieve.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Batch Retrieve</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_querying.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Querying</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_scan.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Scan</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_indexes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Indexes</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_global_secondary_indexes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Global Secondary Indexes</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_local_secondary_indexes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Local Secondary Indexes</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_aggregation.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Aggregation</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_access_control.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Access Control</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_permissions_api.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Permissions API</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_conditions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Conditions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_web_identity_federation.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Web Identity Federation</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_data_pipeline.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Data Pipeline</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_data_backup.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Data Backup</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_monitoring.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Monitoring</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_cloudtrail.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - CloudTrail</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_mapreduce.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - MapReduce</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_table_activity.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Table Activity</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_error_handling.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Error Handling</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_best_practices.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Best Practices</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(45, 114, 184); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">DynamoDB Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/dynamodb/dynamodb_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+                  href="https://www.tutorialspoint.com/dynamodb/dynamodb_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">DynamoDB - Discussion</a></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+  </body>
+</html>

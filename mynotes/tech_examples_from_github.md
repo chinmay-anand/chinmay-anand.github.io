@@ -1,0 +1,5 @@
+#### Coding Examples from GitHub
+* [**Two-Factor Authentication with Java** and Google Authenticator from Medium](https://medium.com/@ihorsokolyk/two-factor-authentication-with-java-and-google-authenticator-9d7ea15ffee6) and get GitHb code [here](https://github.com/IhorSokolyk/google-2fa) and also check for many spring practical examples
+* [Enabling **Two-Factor Authentication for Your Web Application** from DZone](https://dzone.com/articles/enabling-two-factor-authentication-for-your-web-ap) and write your own authenticator
+* [Add **Two-Factor Authentication** To Your **Website** with Google Authenticator and Twilio **SMS** from Twilio](https://www.twilio.com/blog/2013/04/add-two-factor-authentication-to-your-website-with-google-authenticator-and-twilio-sms.html) and get GitHub code [here](https://github.com/jpf/Twilio-TFA)
+* The code for [freeOTP](https://github.com/freeotp)

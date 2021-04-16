@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=windows-1252">
+  </head>
+  <body>
+    * Visit expressjs.com -- The minimalist web framework for Node.js
+    <pre>mkdir mean_tutorial
+cd mean_tutorial
+npm init
+&gt;&gt; provide parameters
+&gt;&gt; The configuration file "package.json" is created, thins mentions the startup file 
+
+&gt;&gt;As the "Getting Started" page asks add teh following lines to your <br><br><br></pre>
+    <br>
+    <table cellspacing="2" cellpadding="2" width="100%" border="1">
+      <tbody>
+        <tr>
+          <td valign="top" bgcolor="#ffff99"><u><b>Details / Task</b></u><u><b><br>
+              </b></u></td>
+          <td valign="top" bgcolor="#ffff99"><u><b>Remarks</b></u><br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">MEAN - MySQL-Express-Angular-NodeJS --&gt;
+            It's scope is a subset of FullStack development<br>
+            <br>
+            <u><b>REF: build_part1_db_connection.zip <br>
+              </b></u>(E:\MyDevelopments\node_express\mean_tutorial\build_bkup)<u><b><br>
+              </b></u>Training <a
+href="https://www.youtube.com/watch?v=6zfnOrHIUtA&amp;list=PL3vQyqzqjZ637sWpKvniMCxdqZhnMJC1d"><b>Video
+                Part-1</b></a><u><b><br>
+              </b></u></td>
+          <td valign="top">Followed youtube video (<a
+href="https://www.youtube.com/watch?v=6zfnOrHIUtA&amp;list=PL3vQyqzqjZ637sWpKvniMCxdqZhnMJC1d">MEANSTACK
+
+
+
+
+              Tutorial</a> from David Acosta)<br>
+            Private list of node packages <a
+              href="https://colorlib.com/wp/npm-packages-node-js/">as of
+              2019</a> and text list <a
+href="https://www.codementor.io/@ashish1dev/list-of-useful-nodejs-modules-du107mcv3">as
+
+
+
+
+              of 2017</a><br>
+            <br>
+            <a
+href="https://www.codementor.io/@ashish1dev/list-of-useful-nodejs-modules-du107mcv3"></a></td>
+        </tr>
+        <tr>
+          <td valign="top">Express is a minimalist web framework for
+            NodeJS<br>
+            <br>
+          </td>
+          <td valign="top">* To <b>get started with Express</b> visit:
+            "https://<b>expressjs.com</b>"<br>
+            * npm <b>documentation</b>: "https://<b>docs.npmjs.com</b>/misc/scripts#default-values"<br>
+            * Search Node packages: <b>npmjs.com</b> (Check previous
+            block for a list)<br>
+            <br>
+            An <b>Example</b>:
+"https://levelup.gitconnected.com/anonymous-web-scrapping-with-node-js-tor-apify-and-cheerio-3b36ec6a45dc"<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">Create a folder and invoke "npm init" within
+            that folder to initialize the folder as nodejs app.<br>
+            <br>
+            <i>mkdir myapp</i><i><br>
+            </i><i>cd myapp</i><i><br>
+            </i><i>npm init</i><br>
+          </td>
+          <td valign="top">Have a look at the generated file
+            "package.json"<br>
+            The "main" specifies the entry point js file<br>
+            The "scripts"."start" specify the script for start command <br>
+            &nbsp; which defaults to "node server.js", if a file named
+            "server.js" exists in the application folder.<br>
+            We can specify our own script if needed.<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">Collect helloworld sample from "express.js"
+            and put in server.js to create an express application.<br>
+          </td>
+          <td valign="top">Ex: Import "express:<br>
+            <i>var express_app = require('express');</i><br>
+            <br>
+            Then when we run npm start server.js it fails with message "
+            <i>Error: Can not find module 'express'</i>&nbsp; "<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">Install 'express' from project folder using
+            the below command<br>
+            <br>
+            "<i>npm install express --no-save</i>" does not make an
+            "dependencies"entry in package.json<br>
+            "<i>npm install express</i>" or "<i>npm install express
+              --save</i>" makes an "dependencies"entry for "express"
+            with version in package.json<br>
+            <br>
+            <i>npm install express --save</i><br>
+          </td>
+          <td valign="top">
+            <ul>
+              <li>This installs the express framework for our
+                application.</li>
+              <li>To uninstall "express" you can run "<i>npm uninstall
+                  express</i>" from project home and this will uninstall
+                and make the sub folder "node_modules" empty.</li>
+              <li>To find the installed version of "express" run "<i>npm
+                  list express</i>"</li>
+              <li>After each package installation the package.json is
+                updated with the imported package under "dependency"
+                block.</li>
+              <li>"package-lock.json" is generated to list all the
+                dependencies along with version numbers to cater for all
+                future updates to various modules. So this file must not
+                be disturbed.<br>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">Now modify "server.js" to reflect our
+            requirements.<br>
+            Start the server using the below command<br>
+            <i>npm start server.js</i><br>
+          </td>
+          <td valign="top">Every time we make changes to server.js we
+            need to stop the server using CTRL+C and start again using
+            "npm start server.js"<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">Install "nodemon" globally<br>
+            <i>npm install -g nodemon</i><br>
+          </td>
+          <td valign="top">To avoid frequent manual restart and to
+            enable auto restart we need to install "nodemon" globally
+            and need to start the server using "nodemon".</td>
+        </tr>
+        <tr>
+          <td valign="top">Start the server using "nodemon" instead of
+            "npm start"<br>
+            <br>
+            <i>nodemon server.js</i><br>
+          </td>
+          <td valign="top"><br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">"Morgan" middleware module can be used for
+            http request logging for analysis.<br>
+          </td>
+          <td valign="top"><i>var my_morgan = require('morgan');</i><br>
+            <i>express_app.use(my_morgan('dev'));</i> //This prints http
+            request details on console for every request<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">Use "mangoose" package to connect to mongodb
+            from nodejs<br>
+            <br>
+            In mongose.connect() a error handling anonymous functionmay
+            be supplied as second optional parameter<br>
+            <br>
+            <br>
+            <b>End </b>of Video (index=2) for <b>"Setting up server
+              with NodeJS, ExpressJS &amp; MongoDB w/ mongoose"</b><br>
+          </td>
+          <td valign="top"><i>var my_mongoose = require('mongoose');</i><i><br>
+            </i><i>my_mongoose.connect('mongodb://localhost:27017/tutorials',
+
+
+
+
+              function(err){</i><i><br>
+            </i><i>&nbsp;&nbsp;&nbsp; if(err){</i><i><br>
+            </i><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              console.log('Not conencted to database. ERROR: '+err);</i><i><br>
+            </i><i>&nbsp;&nbsp;&nbsp; } else {</i><i><br>
+            </i><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              console.log('Successfully connected to database');</i><i><br>
+            </i><i>&nbsp;&nbsp;&nbsp; }</i><i><br>
+            </i><i>});</i><br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top" bgcolor="#99ffff"><br>
+          </td>
+          <td valign="top" bgcolor="#99ffff"><br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top" bgcolor="#99ff99"><br>
+          </td>
+          <td valign="top" bgcolor="#99ff99"><br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">PART-2 User Model and Routes<br>
+            <br>
+            <u><b>REF:
+                build_part2_user_model_routes_dbsave_pwd_encrypt.zip <br>
+              </b></u>(E:\MyDevelopments\node_express\mean_tutorial\build_bkup)<br>
+            <br>
+            Training <b><a
+href="https://www.youtube.com/watch?v=XiLKTVNI998&amp;list=PL3vQyqzqjZ637sWpKvniMCxdqZhnMJC1d&amp;index=3">Video
+                Part-2</a></b><br>
+          </td>
+          <td valign="top">* "server.js" enhanced to define app.post()<br>
+            * imported express middlewares express.json to enable
+            parsing of the req.body json input<br>
+            * Defined a user model schema using mongoose.schema havign 3
+            attribues username, password and email.<br>
+            * In the user model declared property setters like requried,
+            lowercase, unique etc for the attributes where as necessary
+            to enable auto validation by the node system, without
+            explicit validation by us.<br>
+            * Defined a schema.pre('save',...) trigger for the
+            userSchema where we called bcrypt.hash to encrypt the
+            password before saving.<br>
+            * Added the user model to module.exports so that the model
+            could be accessed from the main applicaiotn "server.js"<br>
+            * In user.save() and bcrypt.hash() we have provided callback
+            inline functions to handle error conditions.<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top" bgcolor="#99ffff"><br>
+          </td>
+          <td valign="top" bgcolor="#99ffff"><br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top" bgcolor="#99ff99"><br>
+          </td>
+          <td valign="top" bgcolor="#99ff99"><br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"><br>
+          </td>
+          <td valign="top"><br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"><br>
+          </td>
+          <td valign="top"><br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"><br>
+          </td>
+          <td valign="top"><br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"><br>
+          </td>
+          <td valign="top"><br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"><br>
+          </td>
+          <td valign="top"><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pre><br></pre>
+    <table cellspacing="2" cellpadding="2" width="100%" border="1">
+      <tbody>
+        <tr>
+          <td valign="top" bgcolor="#ffff66">YOUTUBE VIDEO TUTORIALS ON
+            MEAN STACK (<b>M</b>ongo-<b>E</b>xtJS-<b>A</b>ngular-<b>N</b>odaJS)<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"><br>
+            "<b>index=n</b>" - is the only changing parameter in
+            following urls:<br>
+            <br>
+            <u><b><a
+href="https://www.youtube.com/watch?v=6zfnOrHIUtA&amp;list=PL3vQyqzqjZ637sWpKvniMCxdqZhnMJC1d&amp;index=2">MEAN
+
+
+
+                  Stack App</a> by David Acosta</b></u><br>
+            <br>
+            INDEX = 1 to 22 as mentioned below (in the url<br>
+            <ol>
+              <li>MEAN Stack App Introduction</li>
+              <li>Setting up Server with NodeJS &amp; ExpressJS and
+                MongoDB w/Mongoose</li>
+              <li>User Model &amp; Routes</li>
+              <li>Static Layout (Index) Using ExpressJS</li>
+              <li>Mapping Bootstrap and Angular Libraries</li>
+              <li>Angular Routes (ngRoute)</li>
+              <li>User Registration Page, AngularJS Factory/Services,
+                and ngAnimate</li>
+              <li>User Login, AngularJS Factory/Service, Authenticate
+                Service</li>
+              <li>Keep User Logged In Using JSON Web Tokens</li>
+              <li>Login with Facebook using PassportJS</li>
+              <li>Login with Twitter &amp; Google+ using PassportJS</li>
+              <li>Restricting Routes (ngRoute/AngularJS)</li>
+              <li>Back-End Validation w/Mongoose &amp; Regular
+                Expressions (RegEx)</li>
+              <li>Front-End Form Validation w/AngularJS</li>
+              <li>Confirm/Match Password w/AngularJS</li>
+              <li>Confirmation E-mail (Nodemailer &amp; Sendgrid)</li>
+              <li>Reset Password/Forgot Username</li>
+              <li>Bootstrap Modals and Expired Sessions</li>
+              <li>User Permissions &amp; Roles (CRUD - Create Read
+                Update Delete)</li>
+              <li>Search Engine (AngularJS)</li>
+              <li>Deploy App Using Heroku</li>
+              <li>From Heroku to Domain (Using godaddy.com)</li>
+            </ol>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pre></pre>
+  </body>
+</html>

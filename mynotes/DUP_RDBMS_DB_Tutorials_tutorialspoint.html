@@ -1,0 +1,2406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>RDBMS Tutorials @ tutorialspoint</title>
+  </head>
+  <body>
+    RDBMS Documents<br>
+    <table cellspacing="2" cellpadding="2" width="100%" border="1">
+      <tbody>
+        <tr>
+          <td valign="top">Generic SQL<br>
+          </td>
+          <td valign="top">PL/SQL (Oracle)<br>
+          </td>
+          <td valign="top">T_SQL (Microsoft)<br>
+          </td>
+          <td valign="top">MariaDB (MySQL variant)<br>
+          </td>
+          <td valign="top">MySQL<br>
+          </td>
+          <td valign="top">PostgreSQL<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(87, 184, 71); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">SQL Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/sql/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-overview.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Overview</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - RDBMS Concepts</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-databases.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Databases</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-syntax.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Syntax</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-data-types.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Data Types</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-operators.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Operators</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-expressions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Expressions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-create-database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Create Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-drop-database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Drop Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-select-database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Select Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-create-table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Create Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-drop-table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Drop Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-insert-query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Insert Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-select-query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Select Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-where-clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Where Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-and-or-clauses.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - AND &amp; OR Clauses</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-update-query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Update Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-delete-query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Delete Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-like-clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Like Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-top-clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Top Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-order-by.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Order By</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-group-by.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Group By</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-distinct-keyword.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Distinct Keyword</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-sorting-results.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Sorting Results</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(87, 184, 71); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Advanced SQL</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-constraints.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Constraints</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-using-joins.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Using Joins</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-unions-clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Unions Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-null-values.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - NULL Values</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-alias-syntax.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Alias Syntax</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-indexes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Indexes</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-alter-command.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Alter Command</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-truncate-table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Truncate Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-using-views.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Using Views</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-having-clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Having Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-transactions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Transactions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-wildcards.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Wildcards</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-date-functions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Date Functions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-temporary-tables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Temporary Tables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-clone-tables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Clone Tables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-sub-queries.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Sub Queries</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-using-sequences.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Using Sequences</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-handling-duplicates.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Handling Duplicates</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-injection.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Injection</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(87, 184, 71); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">SQL Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-database-tuning.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Database Tuning</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql_questions_answers.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Questions and Answers</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-quick-guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-useful-functions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Useful Functions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-useful-resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/sql/sql-discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">SQL - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(208, 32, 35); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">PL/SQL Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/plsql/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_overview.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Overview</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_environment_setup.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Environment</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_basic_syntax.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Basic Syntax</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_data_types.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Data Types</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_variable_types.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Variables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_constants.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Constants and
+                  Literals</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_operators.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Operators</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/plsql/plsql_conditional_control.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Conditions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_loops.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Loops</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_strings.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Strings</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_arrays.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Arrays</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_procedures.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Procedures</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_functions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Functions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_cursors.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Cursors</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_records.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Records</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_exceptions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Exceptions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_triggers.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Triggers</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_packages.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Packages</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_collections.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Collections</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_transactions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Transactions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_date_time.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Date &amp; Time</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_dbms_output.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - DBMS Output</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_object_oriented.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Object Oriented</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(208, 32, 35); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">PL/SQL Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_questions_answers.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Questions and Answers</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/plsql/plsql_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PL/SQL - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(217, 50, 26); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">T-SQL Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/t_sql/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_overview.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - Overview</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_data_types.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - Data Types</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_create_tables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - Create Tables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_drop_tables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - Drop Tables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_insert_statement.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - INSERT Statement</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_select_statement.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - SELECT Statement</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_update_statement.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - UPDATE Statement</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_delete_statement.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - DELETE Statement</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_where_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - WHERE Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_like_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - LIKE Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_order_by_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - ORDER BY Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_group_by_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - GROUP BY Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_distinct_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - DISTINCT Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_joining_tables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - Joining Tables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_sub_queries.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - Sub-Queries</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_stored_procedures.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - Stored Procedures</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_transactions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - Transactions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_indexes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - Indexes</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_functions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - Functions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_string_functions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - String Functions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_date_functions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - Date Functions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_numeric_functions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - Numeric Functions</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(217, 50, 26); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">T-SQL Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+                  href="https://www.tutorialspoint.com/t_sql/t_sql_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">T-SQL - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0rem !important; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(26, 100, 96); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">MariaDB Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/mariadb/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_introduction.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Introduction</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_installation.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Installation</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_administration.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Administration</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_php_syntax.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - PHP Syntax</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_connection.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Connection</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mariadb/mariadb_create_database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Create Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_drop_database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Drop Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mariadb/mariadb_select_database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Select Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_data_types.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Data Types</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_create_tables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Create Tables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_drop_tables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Drop Tables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_insert_query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Insert Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_select_query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Select Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_where_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Where Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_update_query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Update Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_delete_query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Delete Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_like_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Like Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mariadb/mariadb_order_by_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Order By Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_join.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Join</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_null_values.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Null Values</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mariadb/mariadb_regular_expression.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Regular Expression</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_transactions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Transactions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_alter_command.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Alter Command</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mariadb/mariadb_indexes_statistics_tables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Indexes &amp; Statistics
+                  Tables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mariadb/mariadb_temporary_tables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Temporary Tables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_table_cloning.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Table Cloning</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_sequences.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Sequences</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mariadb/mariadb_managing_duplicates.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Managing Duplicates</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mariadb/mariadb_sql_injection_protection.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - SQL Injection
+                  Protection</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_backup_methods.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Backup Methods</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mariadb/mariadb_backup_loading_methods.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Backup Loading
+                  Methods</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mariadb/mariadb_useful_functions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Useful Functions</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0rem !important; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(26, 100, 96); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">MariaDB Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mariadb/mariadb_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+                  href="https://www.tutorialspoint.com/mariadb/mariadb_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MariaDB - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background: rgb(0,
+                78, 97); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Learn MySQL</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/mysql/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-introduction.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Introduction</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-installation.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Installation</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-administration.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Administration</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-php-syntax.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - PHP Syntax</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-connection.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Connection</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-create-database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Create Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-drop-database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Drop Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-select-database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Select Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-data-types.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Data Types</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-create-tables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Create Tables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-drop-tables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Drop Tables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-insert-query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Insert Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-select-query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Select Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-where-clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Where Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-update-query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Update Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-delete-query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Delete Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-like-clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Like Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-sorting-results.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Sorting Results</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-using-joins.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Using Join</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-null-values.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - NULL Values</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-regexps.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Regexps</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-transactions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Transactions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-alter-command.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Alter Command</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-indexes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Indexes</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-temporary-tables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Temporary Tables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-clone-tables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Clone Tables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-database-info.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Database Info</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-using-sequences.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Using Sequences</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/mysql/mysql-handling-duplicates.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Handling Duplicates</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-sql-injection.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - SQL Injection</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-database-export.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Database Export</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-database-import.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Database Import</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background: rgb(0,
+                78, 97); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">MySQL Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-useful-functions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Useful Functions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-quick-guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-useful-resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+                  href="https://www.tutorialspoint.com/mysql/mysql-discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">MySQL - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(49, 97, 146); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">PostgreSQL Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/postgresql/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/postgresql/postgresql_overview.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Overview</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_environment.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Environment Setup</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/postgresql/postgresql_syntax.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Syntax</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_data_types.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Data Types</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_create_database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Create Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_select_database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Select Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_drop_database.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Drop Database</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_create_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Create Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_drop_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Drop Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/postgresql/postgresql_schema.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Schema</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_insert_query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Insert Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_select_query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Select Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_operators.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Operators</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_expressions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Expressions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_where_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Where Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_and_or_clauses.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - AND &amp; OR
+                  Clauses</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_update_query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Update Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_delete_query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Delete Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_like_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Like Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_limit_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Limit Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/postgresql/postgresql_order_by.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Order By Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/postgresql/postgresql_group_by.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Group By</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_with_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - With Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_having_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Having Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_distinct_keyword.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Distinct Keyword</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(49, 97, 146); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Advanced PostgreSQL</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_constraints.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Constraints</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_using_joins.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Joins</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_unions_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Unions Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_null_values.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - NULL Values</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_alias_syntax.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Alias Syntax</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/postgresql/postgresql_triggers.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Triggers</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/postgresql/postgresql_indexes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Indexes</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_alter_command.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Alter Table
+                  Command</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_truncate_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Truncate Table Command</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/postgresql/postgresql_views.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Views</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_transactions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Transactions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/postgresql/postgresql_locks.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Locks</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_sub_queries.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Sub Queries</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_using_autoincrement.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Auto Increment</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_privileges.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Privileges</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_date_time.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Date/Time Functions &amp;
+                  Operators</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_functions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Functions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_useful_functions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Useful Functions</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(49, 97, 146); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">PostgreSQL Interfaces</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/postgresql/postgresql_c_cpp.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - C/C++</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/postgresql/postgresql_java.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Java</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/postgresql/postgresql_php.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - PHP</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/postgresql/postgresql_perl.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Perl</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/postgresql/postgresql_python.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Python</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(49, 97, 146); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">PostgreSQL Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+href="https://www.tutorialspoint.com/postgresql/postgresql_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">PostgreSQL - Discussion</a></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+  </body>
+</html>

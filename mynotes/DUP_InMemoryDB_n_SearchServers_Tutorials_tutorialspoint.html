@@ -1,0 +1,1819 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>In-Memory DB, Search Server Tutorials @ tutorialspoint</title>
+  </head>
+  <body>
+    In-Memory Database &amp; Search Server Tutorials<br>
+    <table cellspacing="2" cellpadding="2" width="100%" border="1">
+      <tbody>
+        <tr>
+          <td valign="top">Redis<br>
+          </td>
+          <td valign="top">Memcached<br>
+          </td>
+          <td valign="top">HSqlDB<br>
+          </td>
+          <td valign="top">H2 Database (in-memory)<br>
+          </td>
+          <td valign="top">Apache Solr Search Engine<br>
+          </td>
+          <td valign="top">Elasticsearch Search Engine<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(216, 42, 32); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Redis Basics</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/redis/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_overview.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Overview</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_environment.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Environment</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_configuration.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Configuration</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_data_types.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Data types</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(216, 42, 32); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Redis Commands</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_commands.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Commands</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_keys.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Keys</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_strings.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Strings</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_hashes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Hashes</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_lists.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Lists</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_sets.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Sets</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_sorted_sets.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Sorted Sets</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_hyperloglog.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - HyperLogLog</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_pub_sub.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Publish Subscribe</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_transactions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Transactions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_scripting.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Scripting</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_connection.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Connections</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_server.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Server</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(216, 42, 32); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Redis Advanced</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_backup.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Backup</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_security.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Security</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_benchmarks.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Benchmarks</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_client_connection.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Client Connection</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_pipelining.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Pipelining</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_partitioning.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Partitioning</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_java.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Java</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_php.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Php</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(216, 42, 32); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Redis Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+                  href="https://www.tutorialspoint.com/redis/redis_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Redis - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(42, 141, 132); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Memcached Basics</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/memcached/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/memcached/memcached_overview.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Overview</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/memcached/memcached_environment.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Environment</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/memcached/memcached_connection.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Connection</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(42, 141, 132); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Memcached Storage Commands</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/memcached/memcached_set_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Set Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/memcached/memcached_add_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Add Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/memcached/memcached_replace_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Replace Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/memcached/memcached_append_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Append Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/memcached/memcached_prepend_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Prepend Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/memcached/memcached_cas.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - CAS</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(42, 141, 132); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Memcached Retrieval Commands</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/memcached/memcached_get_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Get Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/memcached/memcached_get_cas_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Get CAS Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/memcached/memcached_delete_key.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Delete Key</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/memcached/memcached_delete_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Delete Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/memcached/memcached_incr_decr.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Incr/Decr</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(42, 141, 132); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Memcached Statistics Commands</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/memcached/memcached_stats.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Stats</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/memcached/memcached_stats_items.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Stats Items</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/memcached/memcached_stats_slabs.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Stats Slabs</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/memcached/memcached_stats_sizes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Stats sizes</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/memcached/memcached_clear_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Clear Data</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(42, 141, 132); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Memcached Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/memcached/memcached_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/memcached/memcached_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+                  href="https://www.tutorialspoint.com/memcached/memcached_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Memcached - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0rem !important; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(207, 98, 84); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">HSQLDB Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_introduction.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Introduction</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_installation.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Installation</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_connect.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Connect</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_data_types.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Data Types</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_create_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Create Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_drop_table.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Drop Table</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_insert_query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Insert Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_select_query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Select Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_where_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Where Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_update_query.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Update Query</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_delete_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Delete Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_like_clause.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Like Clause</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_sorting_results.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Sorting Results</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_joins.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Joins</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_null_values.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Null Values</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/hsqldb/hsqldb_regular_expressions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Regular Expressions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_transactions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Transactions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_alter_command.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Alter Command</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_indexes.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Indexes</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0rem !important; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(207, 98, 84); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">HSQLDB Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+                  href="https://www.tutorialspoint.com/hsqldb/hsqldb_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">HSQLDB - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background: rgb(3,
+                109, 176); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">H2 Database Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/h2_database/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/h2_database/h2_database_introduction.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Introduction</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/h2_database/h2_database_installation.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Installation</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background: rgb(3,
+                109, 176); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">H2 Database - Data
+                Manipulation</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/h2_database/h2_database_select.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Select</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/h2_database/h2_database_insert.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Insert</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/h2_database/h2_database_update.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Update</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/h2_database/h2_database_delete.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Delete</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/h2_database/h2_database_backup.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Backup</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/h2_database/h2_database_call.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Call</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/h2_database/h2_database_explain.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Explain</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/h2_database/h2_database_merge.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Merge</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/h2_database/h2_database_show.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Show</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background: rgb(3,
+                109, 176); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">H2 Database - Data Definition</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/h2_database/h2_database_create.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Create</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/h2_database/h2_database_alter.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Alter</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/h2_database/h2_database_drop.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Drop</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/h2_database/h2_database_truncate.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Truncate</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/h2_database/h2_database_commit.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Commit</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/h2_database/h2_database_grant.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Grant</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/h2_database/h2_database_savepoint.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Savepoint</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/h2_database/h2_database_rollback.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Rollback</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/h2_database/h2_database_jdbc_connection.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - JDBC Connection</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0.625rem; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background: rgb(3,
+                109, 176); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">H2 Database Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/h2_database/h2_database_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/h2_database/h2_database_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/h2_database/h2_database_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">H2 Database - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0rem !important; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(218, 67, 39); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Apache Solr Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/apache_solr/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_overview.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Overview</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_search_engine_basics.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Search Engine
+                  Basics</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_on_windows_environment.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Windows
+                  Environment</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_on_hadoop.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - On Hadoop</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_architecture.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Architecture</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_terminology.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Terminology</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_basic_commands.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Basic Commands</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+                  href="https://www.tutorialspoint.com/apache_solr/apache_solr_core.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Core</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_indexing_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Indexing Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_adding_documents_xml.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Adding Docs
+                  (XML)</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_updating_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Updating Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_deleting_documents.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Deleting
+                  Documents</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_retrieving_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Retrieving Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_querying_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Querying Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_faceting.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Faceting</a></li>
+            </ul>
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0rem !important; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(218, 67, 39); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Apache Solr Useful Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Useful Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+href="https://www.tutorialspoint.com/apache_solr/apache_solr_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Apache Solr - Discussion</a></li>
+            </ul>
+          </td>
+          <td valign="top">
+            <ul class="toc chapters" style="margin-top: 0px;
+              margin-bottom: 0rem !important; margin-left: -42px; color:
+              rgba(0, 0, 0, 0.87); font-family: Arial, Verdana, Tahoma;
+              font-size: 16px; font-style: normal;
+              font-variant-ligatures: normal; font-variant-caps: normal;
+              font-weight: 400; letter-spacing: normal; orphans: 2;
+              text-align: start; text-indent: 0px; text-transform: none;
+              white-space: normal; widows: 2; word-spacing: 0px;
+              -webkit-text-stroke-width: 0px; background-color: rgb(238,
+              238, 238); text-decoration-style: initial;
+              text-decoration-color: initial;">
+              <li class="heading" style="margin: 0px; background:
+                rgb(115, 183, 62); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Elasticsearch Tutorial</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background-color: rgb(214, 214, 214);"><a
+                  href="https://www.tutorialspoint.com/elasticsearch/index.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Home</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_basic_concepts.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Basic Concepts</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_installation.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Installation</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_populate.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Populate</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_migrations_between_versions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Migration between Versions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_api_conventions.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - API
+                  Conventions</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_document_apis.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Document APIs</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_search_apis.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Search APIs</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_aggregations.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Aggregations</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_index_apis.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Index APIs</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_cat_apis.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - CAT APIs</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_cluster_apis.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Cluster APIs</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_query_dsl.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Query DSL</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_mapping.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Mapping</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_analysis.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Analysis</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_modules.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Modules</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_index_modules.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Index Modules</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_ingest_node.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Ingest Node</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_managing_index_lifecycle.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Managing Index
+                  Lifecycle</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_sql_access.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - SQL Access</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_monitoring.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Monitoring</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_rollup_data.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Rollup Data</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_frozen_indices.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Frozen Indices</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_testing.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Testing</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_kibana_dashboard.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Kibana
+                  Dashboard</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_filtering_by_field.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Filtering by
+                  Field</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_data_tables.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Data Tables</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_region_maps.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Region Maps</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_pie_charts.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Pie Charts</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_area_and_bar_charts.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Area and Bar
+                  Charts</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_time_series.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Time Series</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_tag_clouds.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Tag Clouds</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_heat_maps.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Heat Maps</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_canvas.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Canvas</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_logs_ui.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Logs UI</a></li>
+              <li class="heading" style="margin: 0px; background:
+                rgb(115, 183, 62); font-size: 16px; border-width: 1px;
+                border-style: solid solid dotted; border-color: rgb(121,
+                119, 119) rgb(121, 119, 119) rgb(187, 187, 187);
+                border-image: initial; color: rgb(255, 255, 255);
+                padding: 15px 0px 15px 15px !important; position:
+                relative; display: block;">Elasticsearch Useful
+                Resources</li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_quick_guide.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Quick Guide</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_useful_resources.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Useful
+                  Resources</a></li>
+              <li style="position: relative; display: block;
+                border-bottom: 1px dotted rgb(187, 187, 187);
+                background: rgb(222, 222, 222);"><a
+href="https://www.tutorialspoint.com/elasticsearch/elasticsearch_discussion.htm"
+                  style="background:
+                  url(&quot;https://www.tutorialspoint.com/images/list-icon.png&quot;)
+                  3px 11px no-repeat; color: rgb(0, 0, 0);
+                  text-decoration: none; font-size: 15px; line-height:
+                  26px; padding: 2px 23px; transition: all 0.3s ease 0s;
+                  display: inline-block;">Elasticsearch - Discussion</a></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+  </body>
+</html>

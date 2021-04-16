@@ -1,0 +1,2 @@
+* [Technical Product Management](https://www.mindtheproduct.com/technical-product-manager-anyway/) ~Daniel Elizalde
+* [Product Manager vs Technical Product Manager](https://www.aha.io/blog/the-product-manager-vs-the-technical-product-manager)

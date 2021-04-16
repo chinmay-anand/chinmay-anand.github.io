@@ -1,0 +1,9 @@
+| Topic Link | Description |
+|--|--|
+| [The Complete Apache Spark Collection [Tutorials and Articles]](https://dzone.com/articles/the-complete-apache-spark-collection-tutorials-and) | Spark - Installation, theory, Spark vs Kafka vs Flink, Streaming types, clusters, Databases/RDSs/Dataframes, Performance optimization, PySpark, Spark and Scala, MAchine Learning, Containerization, REST, ETL, Gametheory |
+| [GitHub - SFO Fire Service Call Analysis](https://github.com/treselle-systems/sfo_fire_service_call_analysis_using_spark) | GitHub scala code - SFO Fire Service Call Analysis in Scala (part of Spack performcnce dzone articles) |
+| [GitHub - Treselle Systems code](https://github.com/treselle-systems) | GitHub code - Treselle Systems - Data Science code in R, Scala |
+| [Part I - Apache Spark on YARN – Performance and Bottlenecks](https://dzone.com/articles/apache-spark-on-yarn-performance-and-bottlenecks) | [PART-I: Spark Performance] Performance tuning and fixing bottlenecks in high-level APIs with an Apache Spark application on YARN. |
+| [Part II - Apache Spark on YARN – Resource Planning](https://dzone.com/articles/apache-spark-on-yarn-resource-planning) | [PART-II: Spark Performance] Apache Spark is an in-memory distributed data processing engine and YARN is a cluster management technology. Learn how to use them effectively to manage your big data. |
+| [Part III - Apache Spark for the Impatient](https://dzone.com/articles/apache-spark-in-a-nutshell) | [PART-III: Spark Performance] list of the most important topics in Spark that everyone who does not have the time to go through an entire book should know. |
+| [Part IV - Apache Spark Performance Tuning – Straggler Tasks](https://dzone.com/articles/apache-spark-performance-tuning-straggler-tasks) | [PART-IV: Spark Performance] Shuffle and straggler tasks problem so as to improve the performance of the use case application. |
