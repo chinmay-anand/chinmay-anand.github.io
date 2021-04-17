@@ -28,9 +28,6 @@
     * Documentation: https://docs.localxpose.io/
     * DISADV: The connection timesout every 15 minutes.
     * ADV: We get a fixed url like *"https://chinmay.loclx.io"* (depends on subdomain we pass.
-* SYNTAX for *pagekite*
-  * loclx tunnel http --subdomain chinmay --to localhost:8081 --basic-auth "chinmay:anand"
-    * The resulting url (e.g. https://chinmay.loclx.io) prompts for loginid/password when accessing we can use the values passed to "--basic-auth" parameter.
 * SYNTAX for *localtunnel*
   * Download location: https://github.com/localtunnel/localtunnel
   * I could not make it run
@@ -53,7 +50,7 @@
 >* "LocalTunnel" -- Free but difficult to run -- [Documentation](https://github.com/localtunnel/localtunnel) -- I could not make it up even after installing this nodejs package.
 
 * LOCALXPOSE:
->* SYNTAX:  "ngrok  --help"
+>* SYNTAX:  "loclx  --help"
 >* "LocalXpose" -- can use free (15 min timeout) -- [Documentation](https://docs.localxpose.io/tutorials/) -- The paid version does not timeout.
 
 * "pagekite" -- trial version -- expires after 30 days -- [Documentation](https://pagekite.net/support/quickstart/).
