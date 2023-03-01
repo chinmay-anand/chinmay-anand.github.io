@@ -1,7 +1,12 @@
-#### Find below the commandline syntax for all kafka CLI commands
 
 --- 
+#### Kafka Quickstart Guide & Tricks
 * [Kafka Official **Quickstart Guide**](https://kafka.apache.org/quickstart)
+* [Kafka Message **Batch** Consumer **Retry** to handle failures/exceptions](https://medium.com/lydtech-consulting/kafka-message-batch-consumer-retry-8e49bdb39f5c)
+* [**Kafka Monitoring** & Metrics: With Confluent Control Center](https://medium.com/lydtech-consulting/kafka-monitoring-metrics-with-confluent-control-center-b712369b5b82)
+
+--- 
+#### Find below the commandline syntax for all kafka CLI commands
 * [**Apache Kafka CLI commands** cheat sheet (medium.com)](https://medium.com/@TimvanBaarsen/apache-kafka-cli-commands-cheat-sheet-a6f06eac01b)
 
 --- 
@@ -12,7 +17,7 @@ Minimalist steps:
 4. Start one or more kafka console consumers, which will start reading the messages written by the producer.
 
 --- 
-<details><summary><b>My Observations on commandline broker, producer, consumer etc</b></summary>
+<details><summary><b>Failover Scenarios -- My Observations on commandline broker, producer, consumer etc</b></summary>
 
 * Scenario: With a single zookeeper - single broker scenario with one produce and two consiumers connected
   * When the server i.e. broker (kafka-server.bat) was made down and then started again after some time...
