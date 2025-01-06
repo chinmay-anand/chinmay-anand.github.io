@@ -198,3 +198,17 @@ Ranked by Employee/Job Satisfaction:
 6. Infosys  
 7. Deloitte  
 8. IBM
+
+```
+Above was the output from ChatGPT for my below input:
+
+can you rank below companies in the following orders:
+* by profitability
+* by revenue
+* by employee preference
+* by popularity
+* by employee / job satisfaction
+
+The companies are:
+Novartis, Microsoft, TCS, Infosys, Dell, Deloitte, IBM, Google
+```
