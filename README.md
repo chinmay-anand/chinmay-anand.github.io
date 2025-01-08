@@ -1,6 +1,7 @@
 ### This page is coming soon... Stay tuned.
 
 * [Ranking of few companies (cgpt)](notes/company_ranking.md)
+* [HowTo Series](howto/)
 * [Other Notes](mynotes/)
 * Fullstack Development with
   * [React(MERN)](https://www.mongodb.com/resources/languages/mern-stack) - [Youtube](https://www.youtube.com/watch?v=O3BUHwfHf84)
