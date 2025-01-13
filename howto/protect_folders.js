@@ -42,7 +42,15 @@ const verifyPassword = async (folder) => {
     if (folderData.hashes.includes(hashedInput)) {
         document.getElementById('protected-content').style.display = 'block';
     } else {
-        alert("Incorrect password. Access denied.");
+        // Increment invalid attempt counter
+        invalidAttempts++;
+
+        if (invalidAttempts >= maxAttempts) {
+            // Redirect to error page after max attempts
+            window.location.href = '/error/404.html';
+        } else {
+            alert(`Incorrect password. ${maxAttempts - invalidAttempts} attempt(s) remaining.`);
+        }
     }
 };
 
